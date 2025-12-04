@@ -1,0 +1,11 @@
+{
+	"Hero": {
+		"description": "A ready-made and well-structured project setup with Next.js 15, TypeScript, and Tailwind CSS.",
+		"description2": "Built-in multilingual support with next-intl — start developing right away."
+	},
+	"Modal": {
+		"title": "Clone the repository",
+		"text": "Run this command in your terminal to get started.",
+		"btn": "Close"
+	}
+}
