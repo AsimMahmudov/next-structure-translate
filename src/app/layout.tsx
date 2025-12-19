@@ -4,8 +4,6 @@ import "@/styles/globals.scss";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/constants/seo";
 import { LayoutPage } from "@/components/layout/LayoutPage";
 import Head from "./Head";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -39,25 +37,17 @@ export const metadata: Metadata = {
 	},
 };
 
-export default async function RootLayout({
+export default function RootLayout({
 	children,
-	params,
 }: Readonly<{
 	children: React.ReactNode;
-	params: Promise<{ locale: string }>;
 }>) {
-
-	const { locale } = await params;
-	const messages = await getMessages();
-
 	return (
-		<html lang={locale}>
+		<html lang="en">
 			<Head />
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-				<NextIntlClientProvider messages={messages}>
-					<LayoutPage>{children}</LayoutPage>
-				</NextIntlClientProvider>
+				<LayoutPage>{children}</LayoutPage>
 			</body>
 		</html>
 	);
